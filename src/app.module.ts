@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostModule } from './post/post.module';
 import { UserModule } from './user/user.module';
+import { TagModule } from './tag/tag.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { UserModule } from './user/user.module';
       synchronize: true,
       entities: [join(__dirname, '**/**.entity{.ts,.js}')],
     }),
+    TagModule,
   ],
   controllers: [AppController],
   providers: [AppService],

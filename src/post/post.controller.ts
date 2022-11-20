@@ -36,8 +36,7 @@ export class PostController {
   @Put("/update")
   async update(@Body() post: PostEntity):  Promise<PostEntity>{
     post.lastModifier = new Date();
-    post.createdDate = new Date(post.createdDate);
-    
+    post.urlTitle = slugify(post.title, {locale: 'vi', lower: true}) 
     return await this.service.update(post);
   }
 
